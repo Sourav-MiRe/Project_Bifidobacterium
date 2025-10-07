@@ -1,6 +1,5 @@
 
-load("G:\\My Drive\\Bifido_Project\\BioRxiv_submission\\GitHub_folders\\BifidobacterialPrevalencePatterns\\DATA\\Bifidotypes_Batch1.RData")
-load("/data/Bifidotypes_Batch1.RData")
+load("../Data/Bifidotypes_Batch1.RData")
 
 
 MajorBifsOrdered <- colnames(df_infant_bifido)[order(apply(rbind(df_infant_bifido[,1:8],df_adult_bifido[,1:8],df_senior_bifido[,1:8]),2,function(x)(length(x[x>=0.3]))))]
@@ -62,7 +61,7 @@ hmpInfantStudyBifido <- heatmap.2(temp_mat,density="none",trace="none",Colv=FALS
 #pdf(file="G:\\My Drive\\Lab\\Projects\\ProbioArchaea\\Bif_Manuscript\\AnalysisData\\InfantImagePrevalence.pdf",height=24,width=40)
 svg_height = nrow(temp_mat)
 svg_width = ncol(temp_mat)
-svg(file="../results/InfantImagePrevalence.svg",bg="transparent", height = svg_height, width=svg_width)
+svg(file="../Data/InfantImagePrevalence.svg",bg="transparent", height = svg_height, width=svg_width)
 heatmap.2(temp_mat,density="none",trace="none",Colv=FALSE,col=brewer.pal(8,"Greens"),key=FALSE,margins=c(5,10),lhei=c(1,5),lwid=c(1,5),sepcolor="grey40",sepwidth=c(0.02,0.02),rowsep=c(0:nrow(temp_mat)),colsep=c(0:ncol(temp_mat)),dendrogram="none",labRow=NA,labCol=NA)
 dev.off()
 
@@ -72,7 +71,7 @@ hmpAdultStudyBifido <- heatmap.2(temp_mat,density="none",trace="none",Colv=FALSE
 #pdf(file="G:\\My Drive\\Lab\\Projects\\ProbioArchaea\\Bif_Manuscript\\AnalysisData\\AdultImagePrevalence.pdf",height=155.2,width=40)
 svg_height = nrow(temp_mat)
 svg_width = ncol(temp_mat)
-svg(file="../results/AdultImagePrevalence.svg",bg="transparent", height = svg_height, width=svg_width)
+svg(file="../Data/AdultImagePrevalence.svg",bg="transparent", height = svg_height, width=svg_width)
 heatmap.2(temp_mat,density="none",trace="none",Colv=FALSE,col=brewer.pal(8,"Greens"),key=FALSE,margins=c(5,10),lhei=c(1,5),lwid=c(1,5),sepcolor="grey40",sepwidth=c(0.02,0.02),rowsep=c(0:nrow(temp_mat)),colsep=c(0:ncol(temp_mat)),dendrogram="none",labRow=NA,labCol=NA)
 dev.off()
 
@@ -82,7 +81,7 @@ hmpSeniorStudyBifido <- heatmap.2(temp_mat,density="none",trace="none",Colv=FALS
 #pdf(file="G:\\My Drive\\Lab\\Projects\\ProbioArchaea\\Bif_Manuscript\\AnalysisData\\SeniorImagePrevalence.pdf",height=59.2,width=40)
 svg_height = nrow(temp_mat)
 svg_width = ncol(temp_mat)
-svg(file="../results/SeniorImagePrevalence.svg",bg="transparent", height = svg_height, width=svg_width)
+svg(file="../Data/SeniorImagePrevalence.svg",bg="transparent", height = svg_height, width=svg_width)
 heatmap.2(temp_mat,density="none",trace="none",Colv=FALSE,col=brewer.pal(8,"Greens"),key=FALSE,margins=c(5,10),lhei=c(1,5),lwid=c(1,5),notecex=6,sepcolor="grey40",sepwidth=c(0.02,0.02),rowsep=c(0:nrow(temp_mat)),colsep=c(0:ncol(temp_mat)),dendrogram="none",labRow=NA,labCol=NA)
 dev.off()
 
@@ -91,7 +90,7 @@ temp_mat <- as.matrix(df_infant_bifido[rev(colnames(hmpInfantStudyBifido$carpet)
 #pdf(file="G:\\My Drive\\Lab\\Projects\\ProbioArchaea\\Bif_Manuscript\\AnalysisData\\InfantOverallPrevalence.pdf",height=24,width=10)
 svg_height = nrow(temp_mat)
 svg_width = ncol(temp_mat)
-svg(file="../results/InfantOverallPrevalence.svg",bg="transparent", height = svg_height, width=svg_width*2)
+svg(file="../Data/InfantOverallPrevalence.svg",bg="transparent", height = svg_height, width=svg_width*2)
 heatmap.2(temp_mat,density="none",trace="none",Colv=FALSE,Rowv=FALSE,col=brewer.pal(8,"Blues"),key=FALSE,margins=c(5,10),lhei=c(1,5),lwid=c(1,5),notecex=6,sepcolor="grey40",sepwidth=c(0,0.02),rowsep=c(0:nrow(temp_mat)),labRow=NA,labCol=NA)
 dev.off()
 
@@ -101,7 +100,7 @@ temp_mat <- apply(temp_mat,2,function(x)(ifelse(x=="wgs",1,2)))
 #pdf(file="G:\\My Drive\\Lab\\Projects\\ProbioArchaea\\Bif_Manuscript\\AnalysisData\\InfantSequencingType.pdf",height=24,width=10)
 svg_height = nrow(temp_mat)
 svg_width = ncol(temp_mat)
-svg(file="../results/InfantSequencingType.svg",bg="transparent", height = svg_height, width=svg_width*2)
+svg(file="../Data/InfantSequencingType.svg",bg="transparent", height = svg_height, width=svg_width*2)
 heatmap.2(temp_mat,density="none",trace="none",Colv=FALSE,Rowv=FALSE,col=c("cornflowerblue","darkgoldenrod"),key=FALSE,margins=c(5,10),lhei=c(1,5),lwid=c(1,5),notecex=6,sepcolor="grey40",sepwidth=c(0,0.02),rowsep=c(0:nrow(temp_mat)),colsep=c(0:ncol(temp_mat)),labRow=NA,labCol=NA)
 dev.off()
 
@@ -111,7 +110,7 @@ temp_mat <- apply(temp_mat,2,function(x)(ifelse(x=="IndustrializedUrban",1,ifels
 #pdf(file="G:\\My Drive\\Lab\\Projects\\ProbioArchaea\\Bif_Manuscript\\AnalysisData\\InfantCohortType.pdf",height=24,width=10)
 svg_height = nrow(temp_mat)
 svg_width = ncol(temp_mat)
-svg(file="../results/InfantCohortType.svg",bg="transparent", height = svg_height, width=svg_width*2)
+svg(file="../Data/InfantCohortType.svg",bg="transparent", height = svg_height, width=svg_width*2)
 heatmap.2(temp_mat,density="none",trace="none",Colv=FALSE,Rowv=FALSE,col=c("darkolivegreen1","hotpink1","lightslateblue"),key=FALSE,margins=c(5,10),lhei=c(1,5),lwid=c(1,5),notecex=6,sepcolor="grey40",sepwidth=c(0,0.02),rowsep=c(0:nrow(temp_mat)),colsep=c(0:ncol(temp_mat)),labRow=NA,labCol=NA)
 dev.off()
 
@@ -122,7 +121,7 @@ colnames(temp_mat) <- c("Bray","Kendall")
 #pdf(file="G:\\My Drive\\Lab\\Projects\\ProbioArchaea\\Bif_Manuscript\\AnalysisData\\InfantNonBifInfluence.pdf",height=24,width=10)
 svg_height = nrow(temp_mat)
 svg_width = ncol(temp_mat)
-svg(file="../results/InfantNonBifInfluence.svg",bg="transparent", height = svg_height, width=svg_width*2)
+svg(file="../Data/InfantNonBifInfluence.svg",bg="transparent", height = svg_height, width=svg_width*2)
 heatmap.2(temp_mat,density="none",trace="none",Colv=FALSE,Rowv=FALSE,col=c("white","mediumpurple3"),key=FALSE,margins=c(5,10),lhei=c(1,5),lwid=c(1,5),notecex=6,sepcolor="grey40",sepwidth=c(0.02,0.04),rowsep=c(0:nrow(temp_mat)),colsep=c(0:ncol(temp_mat)),labRow=NA,labCol=NA)
 dev.off()
 
@@ -131,7 +130,7 @@ temp_mat <- as.matrix(df_adult_bifido[rev(colnames(hmpAdultStudyBifido$carpet)),
 #pdf(file="G:\\My Drive\\Lab\\Projects\\ProbioArchaea\\Bif_Manuscript\\AnalysisData\\AdultOverallPrevalence.pdf",height=24,width=10)
 svg_height = nrow(temp_mat)
 svg_width = ncol(temp_mat)
-svg(file="../results/AdultOverallPrevalence.svg",bg="transparent", height = svg_height, width=svg_width*8)
+svg(file="../Data/AdultOverallPrevalence.svg",bg="transparent", height = svg_height, width=svg_width*8)
 heatmap.2(temp_mat,density="none",trace="none",Colv=FALSE,Rowv=FALSE,col=brewer.pal(8,"Blues"),key=FALSE,margins=c(5,10),lhei=c(1,5),lwid=c(1,5),notecex=6,sepcolor="grey40",sepwidth=c(0,0.02),rowsep=c(0:nrow(temp_mat)),colsep=c(0:ncol(temp_mat)),labRow=NA,labCol=NA)
 dev.off()
 
@@ -141,7 +140,7 @@ temp_mat <- apply(temp_mat,2,function(x)(ifelse(x=="wgs",1,2)))
 #pdf(file="G:\\My Drive\\Lab\\Projects\\ProbioArchaea\\Bif_Manuscript\\AnalysisData\\AdultSequencingType.pdf",height=24,width=10)
 svg_height = nrow(temp_mat)
 svg_width = ncol(temp_mat)
-svg(file="../results/AdultSequencingType.svg",bg="transparent", height = svg_height, width=svg_width*8)
+svg(file="../Data/AdultSequencingType.svg",bg="transparent", height = svg_height, width=svg_width*8)
 heatmap.2(temp_mat,density="none",trace="none",Colv=FALSE,Rowv=FALSE,col=c("cornflowerblue","darkgoldenrod"),key=FALSE,margins=c(5,10),lhei=c(1,5),lwid=c(1,5),notecex=6,sepcolor="grey40",sepwidth=c(0,0.02),rowsep=c(0:nrow(temp_mat)),colsep=c(0:ncol(temp_mat)),labRow=NA,labCol=NA)
 dev.off()
 
@@ -151,7 +150,7 @@ temp_mat <- apply(temp_mat,2,function(x)(ifelse(x=="IndustrializedUrban",1,ifels
 #pdf(file="G:\\My Drive\\Lab\\Projects\\ProbioArchaea\\Bif_Manuscript\\AnalysisData\\AdultCohortType.pdf",height=24,width=10)
 svg_height = nrow(temp_mat)
 svg_width = ncol(temp_mat)
-svg(file="../results/AdultCohortType.svg",bg="transparent", height = svg_height, width=svg_width*8)
+svg(file="../Data/AdultCohortType.svg",bg="transparent", height = svg_height, width=svg_width*8)
 heatmap.2(temp_mat,density="none",trace="none",Colv=FALSE,Rowv=FALSE,col=c("darkolivegreen1","hotpink1","lightslateblue"),key=FALSE,margins=c(5,10),lhei=c(1,5),lwid=c(1,5),notecex=6,sepcolor="grey40",sepwidth=c(0,0.02),rowsep=c(0:nrow(temp_mat)),colsep=c(0:ncol(temp_mat)),labRow=NA,labCol=NA)
 dev.off()
 
@@ -162,7 +161,7 @@ colnames(temp_mat) <- c("Bray","Kendall")
 #pdf(file="G:\\My Drive\\Lab\\Projects\\ProbioArchaea\\Bif_Manuscript\\AnalysisData\\AdultNonBifInfluence.pdf",height=24,width=10)
 svg_height = nrow(temp_mat)
 svg_width = ncol(temp_mat)
-svg(file="../results/AdultNonBifInfluence.svg",bg="transparent", height = svg_height, width=svg_width*2)
+svg(file="../Data/AdultNonBifInfluence.svg",bg="transparent", height = svg_height, width=svg_width*2)
 heatmap.2(temp_mat,density="none",trace="none",Colv=FALSE,Rowv=FALSE,col=c("white","mediumpurple3"),key=FALSE,margins=c(5,10),lhei=c(1,5),lwid=c(1,5),notecex=6,sepcolor="grey40",sepwidth=c(0.02,0.04),rowsep=c(0:nrow(temp_mat)),colsep=c(0:ncol(temp_mat)),labRow=NA,labCol=NA)
 dev.off()
 
@@ -171,7 +170,7 @@ temp_mat <- as.matrix(df_senior_bifido[rev(colnames(hmpSeniorStudyBifido$carpet)
 #pdf(file="G:\\My Drive\\Lab\\Projects\\ProbioArchaea\\Bif_Manuscript\\AnalysisData\\SeniorOverallPrevalence.pdf",height=24,width=10)
 svg_height = nrow(temp_mat)
 svg_width = ncol(temp_mat)
-svg(file="../results/SeniorOverallPrevalence.svg",bg="transparent", height = svg_height, width=svg_width*4)
+svg(file="../Data/SeniorOverallPrevalence.svg",bg="transparent", height = svg_height, width=svg_width*4)
 heatmap.2(temp_mat,density="none",trace="none",Colv=FALSE,Rowv=FALSE,col=brewer.pal(8,"Blues"),key=FALSE,margins=c(5,10),lhei=c(1,5),lwid=c(1,5),notecex=6,sepcolor="grey40",sepwidth=c(0,0.02),rowsep=c(0:nrow(temp_mat)),colsep=c(0:ncol(temp_mat)),labRow=NA,labCol=NA)
 dev.off()
 
@@ -181,7 +180,7 @@ temp_mat <- apply(temp_mat,2,function(x)(ifelse(x=="wgs",1,2)))
 #pdf(file="G:\\My Drive\\Lab\\Projects\\ProbioArchaea\\Bif_Manuscript\\AnalysisData\\SeniorSequencingType.pdf",height=24,width=10)
 svg_height = nrow(temp_mat)
 svg_width = ncol(temp_mat)
-svg(file="../results/SeniorSequencingType.svg",bg="transparent", height = svg_height, width=svg_width*4)
+svg(file="../Data/SeniorSequencingType.svg",bg="transparent", height = svg_height, width=svg_width*4)
 heatmap.2(temp_mat,density="none",trace="none",Colv=FALSE,Rowv=FALSE,col=c("cornflowerblue","darkgoldenrod"),key=FALSE,margins=c(5,10),lhei=c(1,5),lwid=c(1,5),notecex=6,sepcolor="grey40",sepwidth=c(0,0.02),rowsep=c(0:nrow(temp_mat)),colsep=c(0:ncol(temp_mat)),labRow=NA,labCol=NA)
 dev.off()
 
@@ -191,7 +190,7 @@ temp_mat <- apply(temp_mat,2,function(x)(ifelse(x=="IndustrializedUrban",1,ifels
 #pdf(file="G:\\My Drive\\Lab\\Projects\\ProbioArchaea\\Bif_Manuscript\\AnalysisData\\SeniorCohortType.pdf")
 svg_height = nrow(temp_mat)
 svg_width = ncol(temp_mat)
-svg(file="../results/SeniorCohortType.svg",bg="transparent", height = svg_height, width=svg_width*4)
+svg(file="../Data/SeniorCohortType.svg",bg="transparent", height = svg_height, width=svg_width*4)
 heatmap.2(temp_mat,density="none",trace="none",Colv=FALSE,Rowv=FALSE,col=c("darkolivegreen1","hotpink1","lightslateblue"),key=FALSE,margins=c(5,10),lhei=c(1,5),lwid=c(1,5),notecex=6,sepcolor="grey40",sepwidth=c(0,0.02),rowsep=c(0:nrow(temp_mat)),colsep=c(0:ncol(temp_mat)),labRow=NA,labCol=NA)
 dev.off()
 
@@ -202,7 +201,7 @@ colnames(temp_mat) <- c("Bray","Kendall")
 #pdf(file="G:\\My Drive\\Lab\\Projects\\ProbioArchaea\\Bif_Manuscript\\AnalysisData\\SeniorNonBifInfluence.pdf",height=24,width=10)
 svg_height = nrow(temp_mat)
 svg_width = ncol(temp_mat)
-svg(file="../results/SeniorNonBifInfluence.svg",bg="transparent", height = svg_height, width=svg_width*2)
+svg(file="../Data/SeniorNonBifInfluence.svg",bg="transparent", height = svg_height, width=svg_width*2)
 heatmap.2(temp_mat,density="none",trace="none",Colv=FALSE,Rowv=FALSE,col=c("white","mediumpurple3"),key=FALSE,margins=c(5,10),lhei=c(1,5),lwid=c(1,5),notecex=6,sepcolor="grey40",sepwidth=c(0.02,0.04),rowsep=c(0:nrow(temp_mat)),colsep=c(0:ncol(temp_mat)),labRow=NA,labCol=NA)
 dev.off()
 
@@ -212,4 +211,5 @@ senior_study_vector <- rev(colnames(hmpSeniorStudyBifido$carpet))
 
 save(infant_study_vector,adult_study_vector,senior_study_vector,file="G:\\My Drive\\Lab\\Projects\\ProbioArchaea\\Bif_Manuscript\\AnalysisData\\StudyVector.RData")
 
-save.image("../results/Bifidotypes_Batch2.RData")
+save.image("../Data/Bifidotypes_Batch2.RData")
+
