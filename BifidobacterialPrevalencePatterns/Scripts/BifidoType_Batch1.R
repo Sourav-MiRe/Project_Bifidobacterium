@@ -173,7 +173,8 @@ for(i in 1:length(senior_select_studies))
 
 
 
-save.image("../results/Bifidotypes_Batch1.RData")
+save.image("../Data/Bifidotypes_Batch1.RData")
+
 
 
 
