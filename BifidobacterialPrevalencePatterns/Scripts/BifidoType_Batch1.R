@@ -1,7 +1,7 @@
 
-load("/data/PrevalenceAnalysis_Input1.RData")
-load("/data/PrevalenceAnalysis_Input2.RData")
-load("/data/metadata.RData")
+load("../Data/PrevalenceAnalysis_Input1.RData")
+load("../Data/PrevalenceAnalysis_Input2.RData")
+load("../Data/metadata.RData")
 
 
 library(dplyr)
@@ -174,6 +174,7 @@ for(i in 1:length(senior_select_studies))
 
 
 save.image("../results/Bifidotypes_Batch1.RData")
+
 
 
 
